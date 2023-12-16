@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOGIN</title>
+    <link rel="shortcut icon" href="burger.webp" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: url(imgjpg.jpg) no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .display {
+            display: flex;
+            align-items: center;
+            height: 100vh;
+            justify-content: center;
+        }
+
+        form {
+            border: 2px solid aqua;
+            position: absolute;
+            height: 520px;
+            width: 400px;
+            transform: translate(-50%, -50%);
+            top: 50%;
+            left: 50%;
+            border-radius: 10px;
+            padding: 50px 35px;
+            backdrop-filter: blur(50px);
+            box-shadow: 0 0 42px 1px rgb(120, 251, 251);
+        }
+
+        form h1 {
+            color: #020404;
+            text-align: center;
+            line-height: 42px;
+            font-weight: 800;
+        }
+
+        .box input {
+            display: block;
+            height: 50px;
+            width: 100%;
+            background-color: transparent;
+            border-radius: 10px;
+            font-size: 18px;
+            color: #020404;
+            margin-top: 8px;
+            padding-top: 0;
+            padding-right: 10px;
+            padding-left: 10px;
+            border: none;
+            box-shadow: 0 0 42px aqua;
+            font-weight: 800;
+            border: 0 solid #0A4958;
+        }
+
+        .box label {
+            display: block;
+            margin-top: 30px;
+            font-size: 20px;
+            font-weight: 800;
+            color: #020404;
+        }
+
+        button {
+            margin-top: 50px;
+            width: 50%;
+            background-color: rgb(2, 56, 56);
+            color: white;
+            padding: 15px 0;
+            font-size: 25px;
+            font-weight: 800;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 0 40px rgba(59, 241, 247, 0.6);
+            margin-left: 70px;
+            border: none;
+        }
+
+        button:hover {
+            background-color: white;
+            color: aqua;
+        }
+
+        form * {
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.5px;
+            outline: none;
+            border: none;
+        }
+
+        .toggle-password {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+            color: #020404;
+            font-size: 16px;
+            font-weight: 600;
+            
+            padding: 2px;
+        
+        }
+
+        .toggle-checkbox {
+            margin-right: 5px;
+            width: 20px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="display">
+        <form onsubmit="stopPo(); return false" >
+            <h1>LOGIN FORM</h1>
+            <div class="box">
+                <label for="">Username</label>
+                <input type="text" name="user" id="user" required>
+            </div>
+            <div class="box">
+                <label for="">Password</label>
+                <input type="password" name="pass" id="pass" required>
+            </div>
+            <div class="toggle-password">
+                <input type="checkbox" id="toggleCheckbox" class="toggle-checkbox" onclick="togglePassword()">
+                <label for="toggleCheckbox">Show Password</label>
+            </div>
+            <div id="nidagan">
+                <button type="submit" id="dagan">Login</button>
+            </div>
+        </form> 
+    </div>
+
+    
+    <script>    
+    function stopPo() {
+            // Get the values of username and password
+            var user = document.getElementById("user").value;
+            var pass = document.getElementById("pass").value;
+            
+           /*console.log("User:", user);
+            console.log("Pass:", pass);
+            */
+
+            // Check if the username and password match the expected values
+            if (user === "Admin" && pass === "Admin12345") {
+                // If successful, show an alert and redirect to "main.html"
+                alert("Login successfully");
+                window.location.href = "test.html";
+            } else {
+                
+                // If unsuccessful, show an alert
+                alert("Wrong Password");
+                //document.getElementById("user").value = "";
+                document.getElementById("pass").value = "";
+            }
+            event.preventDefault();
+        
+        }
+        function togglePassword() {
+                var passwordInput = document.getElementById("pass");
+                var toggleCheckbox = document.getElementById("toggleCheckbox");
+
+                // Toggle the password visibility
+                passwordInput.type = toggleCheckbox.checked ? "text" : "password";
+            }
+    </script>
+</body>
+
+</html>
